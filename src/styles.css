@@ -5,12 +5,20 @@
 }
 
 body {
+  background: #7159c1;
   font-size: 14px;
 }
 
 div {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin: 20px;
+  padding: 10px;;
+}
+
+div img {
+  padding: 10px;
+  margin-bottom: 30px;
 }
 
 div li {
@@ -18,14 +26,30 @@ div li {
   align-items: center;
 }
 
-div li + li {
+div h3 {
+  color: #fff;
+  font-size: 22pt;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div li {
   margin-top: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+}
+
+div .repositories{
+  display: flex;
+  justify-content: space-around;
 }
 
 button {
-  background: #7159c1;
-  color: #fff;
+  background: #fff;
+  color: #7159c1;
   border: 0;
+  border-radius: 30px;
   padding: 10px 15px;
   cursor: pointer;
   margin-top: 15px;
@@ -35,5 +59,6 @@ button {
 
 div li button {
   margin: 0 15px;
+  color: #fff;
   background: #ca4949;
 }

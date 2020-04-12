@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import api from "./services/api";
 
+import Logo from "./assets/logo-rocketseat.svg";
 import "./styles.css";
 
 function App() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
-    api.get('repositories').then(response => {
+    api.get("repositories").then((response) => {
       setRepositories(response.data);
     });
   }, []);
@@ -30,9 +31,9 @@ function App() {
     try {
       await api.delete(`repositories/${id}`);
       const newRepositories = repositories.filter(
-        repository => repository.id !== id
-      )
-      setRepositories(newRepositories)
+        (repository) => repository.id !== id
+      );
+      setRepositories(newRepositories);
     } catch (error) {
       alert(error);
     }
@@ -40,16 +41,18 @@ function App() {
 
   return (
     <div>
-      <ul data-testid="repository-list">
-        {repositories.map((item) => (
-          <li key={item.id}>
-            {item.title}
-            <button onClick={() => handleRemoveRepository(item.id)}>
-              Remover
-            </button>
-          </li>
-        ))}
-      </ul>
+      <img src={Logo} alt="rocketseat logotipo" />
+      <h3>Meus Repositórios:</h3>
+        <ul data-testid="repository-list">
+          {repositories.map((item) => (
+            <li key={item.id}>
+              <button onClick={() => handleRemoveRepository(item.id)}>
+                Remover
+              </button>
+              {item.title}
+            </li>
+          ))}
+        </ul>
 
       <button onClick={handleAddRepository}>Adicionar</button>
     </div>
